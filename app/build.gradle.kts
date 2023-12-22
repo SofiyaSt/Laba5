@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.laba5"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.laba5"

@@ -27,25 +27,26 @@ class AddNote : ComponentActivity() {
         val noteTitle: EditText = findViewById(R.id.editTitle)
         val noteText: EditText = findViewById(R.id.editNote)
         val saveBtn: Button = findViewById(R.id.button)
-        val config = RealmConfiguration.create(schema = setOf(Item::class))
+        val config: RealmConfiguration = RealmConfiguration.create(schema = setOf(Item::class))
         val realm: Realm = Realm.open(config)
 
         saveBtn.setOnClickListener() {
-            val title: String = noteTitle.text.toString()
+            /*val title: String = noteTitle.text.toString()
             val description: String = noteText.text.toString()
             realm.writeBlocking {
                 copyToRealm(Item().apply {
                     titleR = title
                     noteR = description
                 })
-            }
+            }*/
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
+    class Item(): RealmObject {
+        @PrimaryKey
+        var titleR: String? = null
+        var noteR: String? = null
+    }
 }
-class Item() : RealmObject {
-    @PrimaryKey
-    var titleR: String = ""
-    var noteR: String = ""
-}
+

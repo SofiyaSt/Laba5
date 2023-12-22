@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val newnote: Button = findViewById(R.id.newnote)
+        newnote.setOnClickListener{
+            val intent = Intent(this, AddNote::class.java)
+            startActivity(intent)
+        }
+        /*val newnote: Button = findViewById(R.id.newnote)
         newnote.setOnClickListener{ goToAddNote() }
 
         val config = RealmConfiguration.create(schema = setOf(Item::class))
@@ -30,6 +35,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun goToAddNote() {
         val intent = Intent(this, AddNote::class.java)
-        startActivity(intent)
+        startActivity(intent)*/
     }
 }
